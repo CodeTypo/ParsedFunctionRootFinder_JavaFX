@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <center>
+      <LineChart fx:id="graph" prefHeight="300.0" prefWidth="680.0" BorderPane.alignment="CENTER">
+        <xAxis>
+          <NumberAxis label="x" side="BOTTOM" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" label="f(x)" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </center>
+   <right>
+      <VBox alignment="TOP_CENTER" prefHeight="151.0" prefWidth="100.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <ChoiceBox fx:id="RootFinderMethodBox" prefWidth="150.0" />
+            <HBox prefHeight="29.0" prefWidth="100.0">
+               <children>
+                  <TextField fx:id="lowerXlimit" onAction="#onLowerLimitInserted" prefHeight="26.0" prefWidth="45.0" promptText="xLow">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="upperXlimit" onAction="#onUpperLimitInserted" prefHeight="26.0" prefWidth="48.0" promptText="xHigh">
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <TextField fx:id="maxIter" onAction="#maxIterPassed" promptText="Max. iterations">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="2.0" right="2.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="maxEpsilon" onAction="#maxEpsilonPassed" promptText="Max epsilon val.">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="2.0" right="2.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <CheckBox fx:id="showLogs" mnemonicParsing="false" onAction="#showLogsChanged" text="Show logs">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+               </VBox.margin>
+            </CheckBox>
+            <Button fx:id="btnFndRoot" mnemonicParsing="false" onAction="#onClickFindRoot" text="Find Root" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin></VBox>
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="204.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="consoleLog" editable="false" prefHeight="204.0" prefWidth="800.0" promptText="Console Log">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+            </TextArea>
+         </children></HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="1.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="formulaField" onAction="#onFormulaInputFinished" prefHeight="25.0" prefWidth="230.0" promptText="PLEASE INPUT THE F(x) FORMULA FIRST">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></TextField>
+            <TextField fx:id="minX" onAction="#onMinXInserted" prefHeight="26.0" prefWidth="56.0" promptText="minX">
+               <HBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </HBox.margin></TextField>
+            <TextField fx:id="maxX" onAction="#onMaxXInserted" prefHeight="26.0" prefWidth="53.0" promptText="maxX">
+               <HBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </HBox.margin></TextField>
+            <Button fx:id="btnPlot" mnemonicParsing="false" onAction="#onClickPlot" text="Plot">
+               <HBox.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </HBox.margin></Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+</BorderPane>
